@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title> My Budget </title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <style type="text/css">
+        body {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color:white;
+        }
+        .shift {
+            margin-left: 65px;
+        }
+        .table {
+          border: 1px solid #dddddd;
+        }   
+        .text-right
+        {
+            text-align: right !important;
+        }   
+    </style>
+    <body>
+        <div class="container">
+            <h2> <%=month%> <%=year%> </h2>
+            <form align="right" action="/" method="get">
+                <input class="btn btn-secondary" type="submit" value="Return Home">
+            </form><br>             
+            <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr>
+                  <th colspan="2">Income</th>
+                  <th class="text-right">Planned</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <% income.forEach( (income) => { %>
+                    <tr>
+                        <td colspan="2"><%=income.label%></td>
+                        <td class="text-right"><%=income.amount%></td>
+                    </tr>
+                <% }); %>
+              </tbody>
+            </table>
+            <br/>
+            <br/>
+            <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr>
+                  <th colspan="2">Giving</th>
+                  <th class="text-right">Planned</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <% giving.forEach( (giving) => { %>
+                    <tr>
+                        <td colspan="2"><%=giving.label%></td>
+                        <td class="text-right"><%=giving.amount%></td>
+                    </tr>
+                <% }); %>
+              </tbody>
+            </table>
+            <br/>
+            <br/>
+            <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr>
+                  <th colspan="2">Savings</th>
+                  <th class="text-right">Planned</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <% savings.forEach( (savings) => { %>
+                    <tr>
+                        <td colspan="2"><%=savings.label%></td>
+                        <td class="text-right"><%=savings.amount%></td>
+                    </tr>
+                <% }); %>
+              </tbody>
+            </table>
+            <br/>
+            <br/>
+            <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr>
+                  <th colspan="2">Housing</th>
+                  <th class="text-right">Planned</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <% housing.forEach( (housing) => { %>
+                    <tr>
+                        <td colspan="2"><%=housing.label%></td>
+                        <td class="text-right"><%=housing.amount%></td>
+                    </tr>
+                <% }); %>
+              </tbody>
+            </table>
+            <br/>
+            <br/>
+            <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr>
+                  <th colspan="2">Transportation</th>
+                  <th class="text-right">Planned</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <% transportation.forEach( (transportation) => { %>
+                    <tr>
+                        <td colspan="2"><%=transportation.label%></td>
+                        <td class="text-right"><%=transportation.amount%></td>
+                    </tr>
+                <% }); %>
+              </tbody>
+            </table>
+            <br/>
+            <br/>
+            <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr>
+                  <th colspan="2">Lifestyle</th>
+                  <th class="text-right">Planned</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <% lifestyle.forEach( (lifestyle) => { %>
+                    <tr>
+                        <td colspan="2"><%=lifestyle.label%></td>
+                        <td class="text-right"><%=lifestyle.amount%></td>
+                    </tr>
+                <% }); %>
+              </tbody>
+            </table>
+            <br/>
+            <br/>
+            <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr>
+                  <th colspan="2">Insurance</th>
+                  <th class="text-right">Planned</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <% insurance.forEach( (insurance) => { %>
+                    <tr>
+                        <td colspan="2"><%=insurance.label%></td>
+                        <td class="text-right"><%=insurance.amount%></td>
+                    </tr>
+                <% }); %>
+              </tbody>
+            </table>
+            <br/>
+            <br/>
+            <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr>
+                  <th colspan="2">Tax</th>
+                  <th class="text-right">Planned</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <% tax.forEach( (tax) => { %>
+                    <tr>
+                        <td colspan="2"><%=tax.label%></td>
+                        <td class="text-right"><%=tax.amount%></td>
+                    </tr>
+                <% }); %>
+              </tbody>
+            </table>
+            <br/>
+            <br/>
+            <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr>
+                  <th colspan="2">Debt</th>
+                  <th class="text-right">Planned</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <% debt.forEach( (debt) => { %>
+                    <tr>
+                        <td colspan="2"><%=debt.label%></td>
+                        <td class="text-right"><%=debt.amount%></td>
+                    </tr>
+                <% }); %>
+              </tbody>
+            </table>
+            <br/>
+            <br/>
+            <form align="right" action="/" method="get">
+                <input class="btn btn-secondary" type="submit" value="Return Home">
+            </form><br> 
+        </div>  
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>         
+    </body>
+</html>

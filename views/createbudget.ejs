@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title> My Budget </title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<style type="text/css">
+		body {
+			padding-top: 40px;
+			padding-bottom: 40px;
+			background-color:white;
+		}
+		.shift {
+			margin-left: 65px;
+		}
+	</style>
+
+	 <body>
+	 	<div class="container">
+		 	<form class= "form" action="/createbudget" method="post"> 
+				<div class="container-fluid" style="border:2px solid #cecece;"> 
+				    <br/>
+			 		<label >Select a Month</label>
+					    <select required="required" class="form-control form-control-lg" name= "month" id="monthSelect">
+			    	      <option value="">Month</option>
+					      <option>January</option>
+					      <option>February</option>
+					      <option>March</option>
+					      <option>April</option>
+					      <option>May</option>
+					      <option>June</option>
+					      <option>July</option>
+					      <option>August</option>
+					      <option>September</option>
+					      <option>October</option>	
+					      <option>November</option>
+					      <option>December</option>		      
+					    </select>
+				    <br/>
+				    <p>
+				        <label>Year</label> <input min="2019" value="2019" type="number" id="year" placeholder="Year" class="form-control" name="year">
+				    </p>
+				</div>
+		    	<br/>	
+			    <h3> Income </h3>			
+			    <div class="container-fluid" style="border:2px solid #cecece;"> 		    	
+				    <p id="income">
+				    	<div id="incomeRow" class="row">
+				    		<div class="col">
+						        <label>Label:</label> <input type="text" id="label" placeholder="Enter Label" class="form-control" name="labelIncome">
+				    		</div>
+				    		<div class="col">
+				    			<label>Amount:</label> <input min = "0.00" step="0.01" value="0.00" type="number" id="amount" placeholder="Enter Amount" class="form-control" name="amountIncome">
+				    		</div>
+				    	</div>
+				    </p>
+
+				    <p>
+				        <button id="addIncomeButton" class="addIncome">Add fields</button>
+				    </p>
+			    </div>
+			    <br/>
+			    <h3> Giving </h3>
+			    <div class="container-fluid" style="border:2px solid #cecece;"> 
+				    <p id="giving">
+				    	<div id="givingRow" class="row">
+				    		<div class="col">
+						        <label>Label:</label> <input type="text" id="label" placeholder="Enter Label" class="form-control" name="labelGiving">
+				    		</div>
+				    		<div class="col">
+				    			<label>Amount:</label> <input min = "0.00" step="0.01" value="0.00" type="number" id="amount" placeholder="Enter Amount" class="form-control" name="amountGiving">
+				    		</div>
+				    	</div>
+				    </p>
+
+				    <p>
+				        <button id="addGivingButton" class="addGiving">Add fields</button>
+				    </p>
+				</div>
+			    <br/>
+			    <h3> Savings </h3>
+			    <div class="container-fluid" style="border:2px solid #cecece;"> 
+				    <p id="savings">
+				    	<div id="savingsRow" class="row">
+				    		<div class="col">
+						        <label>Label:</label> <input type="text" id="label" placeholder="Enter Label" class="form-control" name="labelSavings">
+				    		</div>
+				    		<div class="col">
+				    			<label>Amount:</label> <input min = "0.00" step="0.01" value="0.00" type="number" id="amount" placeholder="Enter Amount" class="form-control" name="amountSavings">
+				    		</div>
+				    	</div>
+				    </p>
+
+				    <p>
+				        <button id="addSavingsButton" class="addSavings">Add fields</button>
+				    </p>
+				</div>
+			    <br/>
+			    <h3> Housing </h3>
+			    <div class="container-fluid" style="border:2px solid #cecece;"> 
+				    <p id="housing">
+				    	<div id="housingRow" class="row">
+				    		<div class="col">
+						        <label>Label:</label> <input type="text" id="label" placeholder="Enter Label" class="form-control" name="labelHousing">
+				    		</div>
+				    		<div class="col">
+				    			<label>Amount:</label> <input min = "0.00" step="0.01" value="0.00" type="number" id="amount" placeholder="Enter Amount" class="form-control" name="amountHousing">
+				    		</div>
+				    	</div>
+				    </p>
+
+				    <p>
+				        <button id="addHousingButton" class="addHousing">Add fields</button>
+				    </p>
+				</div>	
+
+			    <br/>
+			    <h3> Transportation </h3>
+			    <div class="container-fluid" style="border:2px solid #cecece;"> 
+				    <p id="transportation">
+				    	<div id="transportationRow" class="row">
+				    		<div class="col">
+						        <label>Label:</label> <input type="text" id="label" placeholder="Enter Label" class="form-control" name="labelTransportation">
+				    		</div>
+				    		<div class="col">
+				    			<label>Amount:</label> <input min = "0.00" step="0.01" value="0.00" type="number" id="amount" placeholder="Enter Amount" class="form-control" name="amountTransportation">
+				    		</div>
+				    	</div>
+				    </p>
+
+				    <p>
+				        <button id="addTransportationButton" class="addTranportation">Add fields</button>
+				    </p>
+				</div>	
+
+			    <br/>
+			    <h3> Lifestyle </h3>
+			    <div class="container-fluid" style="border:2px solid #cecece;"> 
+				    <p id="lifestyle">
+				    	<div id="lifestyleRow" class="row">
+				    		<div class="col">
+						        <label>Label:</label> <input type="text" id="label" placeholder="Enter Label" class="form-control" name="labelLifestyle">
+				    		</div>
+				    		<div class="col">
+				    			<label>Amount:</label> <input min = "0.00" step="0.01" value="0.00" type="number" id="amount" placeholder="Enter Amount" class="form-control" name="amountLifestyle">
+				    		</div>
+				    	</div>
+				    </p>
+
+				    <p>
+				        <button id="addLifestyleButton" class="addLifestyle">Add fields</button>
+				    </p>
+				</div>	
+
+
+			    <br/>
+			    <h3> Insurance </h3>
+			    <div class="container-fluid" style="border:2px solid #cecece;"> 
+				    <p id="insurance">
+				    	<div id="insuranceRow" class="row">
+				    		<div class="col">
+						        <label>Label:</label> <input type="text" id="label" placeholder="Enter Label" class="form-control" name="labelInsurance">
+				    		</div>
+				    		<div class="col">
+				    			<label>Amount:</label> <input min = "0.00" step="0.01" value="0.00" type="number" id="amount" placeholder="Enter Amount" class="form-control" name="amountInsurance">
+				    		</div>
+				    	</div>
+				    </p>
+
+				    <p>
+				        <button id="addInsuranceButton" class="addInsurance">Add fields</button>
+				    </p>
+				</div>	
+
+			    <br/>
+			    <h3> Tax </h3>
+			    <div class="container-fluid" style="border:2px solid #cecece;"> 
+				    <p id="tax">
+				    	<div id="taxRow" class="row">
+				    		<div class="col">
+						        <label>Label:</label> <input type="text" id="label" placeholder="Enter Label" class="form-control" name="labelTax">
+				    		</div>
+				    		<div class="col">
+				    			<label>Amount:</label> <input min = "0.00" step="0.01" value="0.00" type="number" id="amount" placeholder="Enter Amount" class="form-control" name="amountTax">
+				    		</div>
+				    	</div>
+				    </p>
+
+				    <p>
+				        <button id="addTaxButton" class="addTax">Add fields</button>
+				    </p>
+				</div>	
+
+			    <br/>
+			    <h3> Debt </h3>
+			    <div class="container-fluid" style="border:2px solid #cecece;"> 
+				    <p id="debt">
+				    	<div id="debtRow" class="row">
+				    		<div class="col">
+						        <label>Label:</label> <input type="text" id="label" placeholder="Enter Label" class="form-control" name="labelDebt">
+				    		</div>
+				    		<div class="col">
+				    			<label>Amount:</label> <input min = "0.00" step="0.01" value="0.00" type="number" id="amount" placeholder="Enter Amount" class="form-control" name="amountDebt">
+				    		</div>
+				    	</div>
+				    </p>
+
+				    <p>
+				        <button id="addDebtButton" class="addDebt">Add fields</button>
+				    </p>
+				</div>	
+				<br/>															
+		       <input class="btn btn-lg btn-primary btn-block" id ="signin" type="submit" value="Submit">
+
+			</form>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>     
+	</body>
+		<script>
+			$(".addGiving").click(function() {
+			    $("#givingRow").clone(true).insertBefore("#addGivingButton");
+			    return false;
+			});
+			$(".addIncome").click(function() {
+			    $("#incomeRow").clone(true).insertBefore("#addIncomeButton");
+			    return false;
+			});
+			$(".addSavings").click(function() {
+			    $("#savingsRow").clone(true).insertBefore("#addSavingsButton");
+			    return false;
+			});	
+			$(".addHousing").click(function() {
+			    $("#housingRow").clone(true).insertBefore("#addHousingButton");
+			    return false;
+			});			
+			$(".addTranportation").click(function() {
+			    $("#transportationRow").clone(true).insertBefore("#addTransportationButton");
+			    return false;
+			});	
+			$(".addLifestyle").click(function() {
+			    $("#lifestyleRow").clone(true).insertBefore("#addLifestyleButton");
+			    return false;
+			});	
+			$(".addInsurance").click(function() {
+			    $("#insuranceRow").clone(true).insertBefore("#addInsuranceButton");
+			    return false;
+			});	
+			$(".addTax").click(function() {
+			    $("#taxRow").clone(true).insertBefore("#addTaxButton");
+			    return false;
+			});	
+			$(".addDebt").click(function() {
+			    $("#debtRow").clone(true).insertBefore("#addDebtButton");
+			    return false;
+			});				
+		</script>
+</html>

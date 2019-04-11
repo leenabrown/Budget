@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title> My Budget </title>
+	  <title> My Budget </title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<style type="text/css">
+		body {
+			padding-top: 40px;
+			padding-bottom: 40px;
+			background-color:white;
+		}
+		.shift {
+			margin-left: 65px;
+		}
+	</style>
+	<body>
+		<div class="container">
+			<h1>Home Page</h1>
+			<form action="/createbudget" method="get">
+				<input class="btn btn-primary btn-block" type="submit" value="Create Budget">
+			</form><br>		
+			<form action="/showbudget" method="get">
+						 	<form class= "form-inline" action="/createbudget" method="post"> 
+					<div class="container-fluid" style="border:2px solid #cecece;"> 
+					    <br/>
+				 		<label >Select a Month</label>
+						    <select required="required" class="form-control" name= "month" id="monthSelect">
+				    	      <option value="">Month</option>
+						      <option>January</option>
+						      <option>February</option>
+						      <option>March</option>
+						      <option>April</option>
+						      <option>May</option>
+						      <option>June</option>
+						      <option>July</option>
+						      <option>August</option>
+						      <option>September</option>
+						      <option>October</option>	
+						      <option>November</option>
+						      <option>December</option>		      
+						    </select>
+					    <br/>
+					    <p>
+					        <label>Year</label> <input min="2019" value="2019" type="number" id="year" placeholder="Year" class="form-control" name="year">
+					    </p>
+					    			<input class="btn btn-primary btn-block" type="submit" value="View Budget">
+					</div>
+			</form><br>	
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>     		
+	</body>
+
+	</html>
