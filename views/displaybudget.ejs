@@ -23,9 +23,9 @@
         }   
     </style>
     <body>
-        <div class="container">
+        <div class="container">         
             <h2> <%=month%> <%=year%> </h2>
-            <form align="right" action="/" method="get">
+            <form align="right" action="/home" method="get">
                 <input class="btn btn-secondary" type="submit" value="Return Home">
             </form><br>             
             <table class="table table-bordered">
@@ -45,6 +45,30 @@
                 <% }); %>
               </tbody>
             </table>
+            <% if (incomeBtn) {%>
+              <form action='/additem' method='post'>            
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="submit"></label>
+                  <div class="col-md-8">
+                    <div id="incomeRow" class="row">
+                        <div class="col">
+                            <label>Label:</label> <input type="text" id="label" placeholder="Enter Label" class="form-control" name="labelIncome">
+                        </div>
+                        <div class="col">
+                          <label>Amount:</label> <input min = "0.00" step="0.01" value="0.00" type="number" id="amount" placeholder="Enter Amount" class="form-control" name="amountIncome">
+                        </div>
+                      </div>                  
+                    <button id="submit" name="submit" class="btn btn-primary" value="submit">Submit</button>
+                    <button id="submit" name="submit" class="btn btn-secondary" value="cancel">Cancel</button>
+                  </div>
+                </div> 
+              </form>
+            <% } %> 
+            <% if (!incomeBtn) { %>             
+              <form align="right" action="/editbudget" method="post">
+                   <button class="btn btn-primary btn-sm" name="addItemBtn" type="submit" value="income">Add Item</button>
+              </form><br>  
+            <% } %>                
             <br/>
             <br/>
             <table class="table table-bordered">
@@ -64,6 +88,30 @@
                 <% }); %>
               </tbody>
             </table>
+            <% if (givingBtn) {%>
+              <form action='/additem' method='post'>            
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="submit"></label>
+                  <div class="col-md-8">
+                    <div id="incomeRow" class="row">
+                        <div class="col">
+                            <label>Label:</label> <input type="text" id="label" placeholder="Enter Label" class="form-control" name="labelGiving">
+                        </div>
+                        <div class="col">
+                          <label>Amount:</label> <input min = "0.00" step="0.01" value="0.00" type="number" id="amount" placeholder="Enter Amount" class="form-control" name="amountGiving">
+                        </div>
+                      </div>                  
+                    <button id="submit" name="submit" class="btn btn-primary" value="submit">Submit</button>
+                    <button id="submit" name="submit" class="btn btn-secondary" value="cancel">Cancel</button>
+                  </div>
+                </div> 
+              </form>
+            <% } %> 
+            <% if (!givingBtn) { %>             
+              <form align="right" action="/editbudget" method="post">
+                   <button class="btn btn-primary btn-sm" name="addItemBtn" type="submit" value="giving">Add Item</button>
+              </form><br>  
+            <% } %>           
             <br/>
             <br/>
             <table class="table table-bordered">
@@ -83,6 +131,30 @@
                 <% }); %>
               </tbody>
             </table>
+           <% if (savingsBtn) {%>
+              <form action='/additem' method='post'>            
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="submit"></label>
+                  <div class="col-md-8">
+                    <div id="incomeRow" class="row">
+                        <div class="col">
+                            <label>Label:</label> <input type="text" id="label" placeholder="Enter Label" class="form-control" name="labelSavings">
+                        </div>
+                        <div class="col">
+                          <label>Amount:</label> <input min = "0.00" step="0.01" value="0.00" type="number" id="amount" placeholder="Enter Amount" class="form-control" name="amountSavings">
+                        </div>
+                      </div>                  
+                    <button id="submit" name="submit" class="btn btn-primary" value="submit">Submit</button>
+                    <button id="submit" name="submit" class="btn btn-secondary" value="cancel">Cancel</button>
+                  </div>
+                </div> 
+              </form>
+            <% } %> 
+            <% if (!savingsBtn) { %>             
+              <form align="right" action="/editbudget" method="post">
+                   <button class="btn btn-primary btn-sm" name="addItemBtn" type="submit" value="savings">Add Item</button>
+              </form><br>  
+            <% } %>                         
             <br/>
             <br/>
             <table class="table table-bordered">
@@ -102,6 +174,30 @@
                 <% }); %>
               </tbody>
             </table>
+           <% if (housingBtn) {%>
+              <form action='/additem' method='post'>            
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="submit"></label>
+                  <div class="col-md-8">
+                    <div id="incomeRow" class="row">
+                        <div class="col">
+                            <label>Label:</label> <input type="text" id="label" placeholder="Enter Label" class="form-control" name="labelHousing">
+                        </div>
+                        <div class="col">
+                          <label>Amount:</label> <input min = "0.00" step="0.01" value="0.00" type="number" id="amount" placeholder="Enter Amount" class="form-control" name="amountHousing">
+                        </div>
+                      </div>                  
+                    <button id="submit" name="submit" class="btn btn-primary" value="submit">Submit</button>
+                    <button id="submit" name="submit" class="btn btn-secondary" value="cancel">Cancel</button>
+                  </div>
+                </div> 
+              </form>
+            <% } %> 
+            <% if (!housingBtn) { %>             
+              <form align="right" action="/editbudget" method="post">
+                   <button class="btn btn-primary btn-sm" name="addItemBtn" type="submit" value="housing">Add Item</button>
+              </form><br>  
+            <% } %>  
             <br/>
             <br/>
             <table class="table table-bordered">
@@ -121,6 +217,30 @@
                 <% }); %>
               </tbody>
             </table>
+           <% if (transportationBtn) {%>
+              <form action='/additem' method='post'>            
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="submit"></label>
+                  <div class="col-md-8">
+                    <div id="incomeRow" class="row">
+                        <div class="col">
+                            <label>Label:</label> <input type="text" id="label" placeholder="Enter Label" class="form-control" name="labelTransportation">
+                        </div>
+                        <div class="col">
+                          <label>Amount:</label> <input min = "0.00" step="0.01" value="0.00" type="number" id="amount" placeholder="Enter Amount" class="form-control" name="amountTransportation">
+                        </div>
+                      </div>                  
+                    <button id="submit" name="submit" class="btn btn-primary" value="submit">Submit</button>
+                    <button id="submit" name="submit" class="btn btn-secondary" value="cancel">Cancel</button>
+                  </div>
+                </div> 
+              </form>
+            <% } %> 
+            <% if (!transportationBtn) { %>             
+              <form align="right" action="/editbudget" method="post">
+                   <button class="btn btn-primary btn-sm" name="addItemBtn" type="submit" value="transportation">Add Item</button>
+              </form><br>  
+            <% } %>
             <br/>
             <br/>
             <table class="table table-bordered">
@@ -140,6 +260,30 @@
                 <% }); %>
               </tbody>
             </table>
+           <% if (lifestyleBtn) {%>
+              <form action='/additem' method='post'>            
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="submit"></label>
+                  <div class="col-md-8">
+                    <div id="incomeRow" class="row">
+                        <div class="col">
+                            <label>Label:</label> <input type="text" id="label" placeholder="Enter Label" class="form-control" name="labelLifestyle">
+                        </div>
+                        <div class="col">
+                          <label>Amount:</label> <input min = "0.00" step="0.01" value="0.00" type="number" id="amount" placeholder="Enter Amount" class="form-control" name="amountLifestyle">
+                        </div>
+                      </div>                  
+                    <button id="submit" name="submit" class="btn btn-primary" value="submit">Submit</button>
+                    <button id="submit" name="submit" class="btn btn-secondary" value="cancel">Cancel</button>
+                  </div>
+                </div> 
+              </form>
+            <% } %> 
+            <% if (!lifestyleBtn) { %>             
+              <form align="right" action="/editbudget" method="post">
+                   <button class="btn btn-primary btn-sm" name="addItemBtn" type="submit" value="lifestyle">Add Item</button>
+              </form><br>  
+            <% } %>  
             <br/>
             <br/>
             <table class="table table-bordered">
@@ -159,6 +303,30 @@
                 <% }); %>
               </tbody>
             </table>
+           <% if (insuranceBtn) {%>
+              <form action='/additem' method='post'>            
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="submit"></label>
+                  <div class="col-md-8">
+                    <div id="incomeRow" class="row">
+                        <div class="col">
+                            <label>Label:</label> <input type="text" id="label" placeholder="Enter Label" class="form-control" name="labelInsurance">
+                        </div>
+                        <div class="col">
+                          <label>Amount:</label> <input min = "0.00" step="0.01" value="0.00" type="number" id="amount" placeholder="Enter Amount" class="form-control" name="amountInsurance">
+                        </div>
+                      </div>                  
+                    <button id="submit" name="submit" class="btn btn-primary" value="submit">Submit</button>
+                    <button id="submit" name="submit" class="btn btn-secondary" value="cancel">Cancel</button>
+                  </div>
+                </div> 
+              </form>
+            <% } %> 
+            <% if (!insuranceBtn) { %>             
+              <form align="right" action="/editbudget" method="post">
+                   <button class="btn btn-primary btn-sm" name="addItemBtn" type="submit" value="insurance">Add Item</button>
+              </form><br>  
+            <% } %> 
             <br/>
             <br/>
             <table class="table table-bordered">
@@ -178,6 +346,30 @@
                 <% }); %>
               </tbody>
             </table>
+           <% if (taxBtn) {%>
+              <form action='/additem' method='post'>            
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="submit"></label>
+                  <div class="col-md-8">
+                    <div id="incomeRow" class="row">
+                        <div class="col">
+                            <label>Label:</label> <input type="text" id="label" placeholder="Enter Label" class="form-control" name="labelTax">
+                        </div>
+                        <div class="col">
+                          <label>Amount:</label> <input min = "0.00" step="0.01" value="0.00" type="number" id="amount" placeholder="Enter Amount" class="form-control" name="amountTax">
+                        </div>
+                      </div>                  
+                    <button id="submit" name="submit" class="btn btn-primary" value="submit">Submit</button>
+                    <button id="submit" name="submit" class="btn btn-secondary" value="cancel">Cancel</button>
+                  </div>
+                </div> 
+              </form>
+            <% } %> 
+            <% if (!taxBtn) { %>             
+              <form align="right" action="/editbudget" method="post">
+                   <button class="btn btn-primary btn-sm" name="addItemBtn" type="submit" value="tax">Add Item</button>
+              </form><br>  
+            <% } %> 
             <br/>
             <br/>
             <table class="table table-bordered">
@@ -197,9 +389,33 @@
                 <% }); %>
               </tbody>
             </table>
+           <% if (debtBtn) {%>
+              <form action='/additem' method='post'>            
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="submit"></label>
+                  <div class="col-md-8">
+                    <div id="incomeRow" class="row">
+                        <div class="col">
+                            <label>Label:</label> <input type="text" id="label" placeholder="Enter Label" class="form-control" name="labelDebt">
+                        </div>
+                        <div class="col">
+                          <label>Amount:</label> <input min = "0.00" step="0.01" value="0.00" type="number" id="amount" placeholder="Enter Amount" class="form-control" name="amountDebt">
+                        </div>
+                      </div>                  
+                    <button id="submit" name="submit" class="btn btn-primary" value="submit">Submit</button>
+                    <button id="submit" name="submit" class="btn btn-secondary" value="cancel">Cancel</button>
+                  </div>
+                </div> 
+              </form>
+            <% } %> 
+            <% if (!debtBtn) { %>             
+              <form align="right" action="/editbudget" method="post">
+                   <button class="btn btn-primary btn-sm" name="addItemBtn" type="submit" value="debt">Add Item</button>
+              </form><br>  
+            <% } %> 
             <br/>
             <br/>
-            <form align="right" action="/" method="get">
+            <form align="right" action="/home" method="get">
                 <input class="btn btn-secondary" type="submit" value="Return Home">
             </form><br> 
         </div>  

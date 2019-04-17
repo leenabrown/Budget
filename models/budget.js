@@ -5,17 +5,18 @@ mongoose.connect('mongodb://localhost:27017/budget', {useNewUrlParser: true});
 var Schema = mongoose.Schema;
 
 const budgetSchema = new mongoose.Schema({
+	username: {type: String}, 
 	month: {type: String},
 	year: {type: Number},
-	income: [{label: { type: String, lowercase: true, trim: true }, amount: String}],
-	giving: [{label: { type: String, lowercase: true, trim: true }, amount: String}],
-	savings: [{label: { type: String, lowercase: true, trim: true }, amount: String}],
-	housing: [{label: { type: String, lowercase: true, trim: true }, amount: String}],
-	transportation: [{label: { type: String, lowercase: true, trim: true }, amount: String}],
-	lifestyle: [{label: { type: String, lowercase: true, trim: true }, amount: String}],
-	insurance: [{label: { type: String, lowercase: true, trim: true }, amount: String}],
-	tax: [{label: { type: String, lowercase: true, trim: true }, amount: String}],
-	debt: [{label: { type: String, lowercase: true, trim: true }, amount: String}]
+	income: [{label: String , amount: String}],
+	giving: [{label: String , amount: String}],
+	savings: [{label: String , amount: String}],
+	housing: [{label: String , amount: String}],
+	transportation: [{label: String , amount: String}],
+	lifestyle: [{label: String , amount: String}],
+	insurance: [{label: String , amount: String}],
+	tax: [{label: String , amount: String}],
+	debt: [{label: String , amount: String}]
 });
 
 module.exports = mongoose.model('Budget', budgetSchema);
