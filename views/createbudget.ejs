@@ -135,6 +135,25 @@
 				</div>	
 
 			    <br/>
+			    <h3> Food </h3>
+			    <div class="container-fluid" style="border:2px solid #cecece;"> 
+				    <p id="food">
+				    	<div id="foodRow" class="row">
+				    		<div class="col">
+						        <label>Label:</label> <input type="text" id="label" placeholder="Enter Label" class="form-control" name="labelFood">
+				    		</div>
+				    		<div class="col">
+				    			<label>Amount:</label> <input min = "0.00" step="0.01" value="0.00" type="number" id="amount" placeholder="Enter Amount" class="form-control" name="amountFood">
+				    		</div>
+				    	</div>
+				    </p>
+
+				    <p>
+				        <button id="addFoodButton" class="addFood">Add fields</button>
+				    </p>
+				</div>	
+
+			    <br/>			    
 			    <h3> Lifestyle </h3>
 			    <div class="container-fluid" style="border:2px solid #cecece;"> 
 				    <p id="lifestyle">
@@ -155,7 +174,7 @@
 
 
 			    <br/>
-			    <h3> Insurance </h3>
+			    <h3> Insurance & Tax </h3>
 			    <div class="container-fluid" style="border:2px solid #cecece;"> 
 				    <p id="insurance">
 				    	<div id="insuranceRow" class="row">
@@ -170,25 +189,6 @@
 
 				    <p>
 				        <button id="addInsuranceButton" class="addInsurance">Add fields</button>
-				    </p>
-				</div>	
-
-			    <br/>
-			    <h3> Tax </h3>
-			    <div class="container-fluid" style="border:2px solid #cecece;"> 
-				    <p id="tax">
-				    	<div id="taxRow" class="row">
-				    		<div class="col">
-						        <label>Label:</label> <input type="text" id="label" placeholder="Enter Label" class="form-control" name="labelTax">
-				    		</div>
-				    		<div class="col">
-				    			<label>Amount:</label> <input min = "0.00" step="0.01" value="0.00" type="number" id="amount" placeholder="Enter Amount" class="form-control" name="amountTax">
-				    		</div>
-				    	</div>
-				    </p>
-
-				    <p>
-				        <button id="addTaxButton" class="addTax">Add fields</button>
 				    </p>
 				</div>	
 
@@ -241,6 +241,10 @@
 			    $("#transportationRow").clone(true).insertBefore("#addTransportationButton");
 			    return false;
 			});	
+			$(".addFood").click(function() {
+			    $("#foodRow").clone(true).insertBefore("#addFoodButton");
+			    return false;
+			});			
 			$(".addLifestyle").click(function() {
 			    $("#lifestyleRow").clone(true).insertBefore("#addLifestyleButton");
 			    return false;
@@ -249,10 +253,7 @@
 			    $("#insuranceRow").clone(true).insertBefore("#addInsuranceButton");
 			    return false;
 			});	
-			$(".addTax").click(function() {
-			    $("#taxRow").clone(true).insertBefore("#addTaxButton");
-			    return false;
-			});	
+	
 			$(".addDebt").click(function() {
 			    $("#debtRow").clone(true).insertBefore("#addDebtButton");
 			    return false;

@@ -4,11 +4,10 @@ mongoose.connect('mongodb://localhost:27017/budget', {useNewUrlParser: true});
 
 var Schema = mongoose.Schema;
 
-const budgetSchema = new mongoose.Schema({
+const spentSchema = new mongoose.Schema({
 	username: {type: String}, 
 	month: {type: String},
 	year: {type: Number},
-	income: [{label: String , amount: String}],
 	giving: [{label: String , amount: String}],
 	savings: [{label: String , amount: String}],
 	housing: [{label: String , amount: String}],
@@ -19,5 +18,4 @@ const budgetSchema = new mongoose.Schema({
 	debt: [{label: String , amount: String}]
 });
 
-
-module.exports = mongoose.model('Budget', budgetSchema);
+module.exports = mongoose.model('Spent', spentSchema);

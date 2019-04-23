@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var Budget = require('./models/budget.js');
+var Spent = require('./models/spent.js');
 var Users = require('./models/user.js');
 
 const PORT = 8080;
@@ -66,6 +67,8 @@ app.get('/showbudget', routes.show_budget);
 app.post('/showbudget', routes.post_show_budget);
 app.get('/signup',routes.signup);
 app.post('/signup', routes.post_signup);
+app.get('/addexpense', routes.add_expense);
+app.post('/addexpense', routes.post_add_expense);
 console.log('Starting budget app...');
 app.listen(PORT, HOST);
 console.log('Server running on port 8080. Now open http://localhost:8080/ in your browser!');

@@ -23,11 +23,38 @@
         }   
     </style>
     <body>
+      <div class="container">        
+        <nav class="navbar fixed-bottom navbar-light bg-light">
+          <a href="/addexpense" class="btn btn-secondary btn-lg btn-block" role="button">+</a>
+        </nav>
+      </div>
         <div class="container">         
             <h2> <%=month%> <%=year%> </h2>
-            <form align="right" action="/home" method="get">
-                <input class="btn btn-secondary" type="submit" value="Return Home">
-            </form><br>             
+            <div >
+              <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                    <form align="right" action="/home" method="get">
+                      <input class="btn btn-outline-secondary btn-sm" type="submit" value="Home">
+                    </form>
+                    <form align="right" action="/showbudget" method="post">
+                     <button class="btn btn-outline-secondary btn-sm" name="menu" type="submit" value="planned">Planned</button>
+                    </form>
+
+                    <form align="right" action="/showbudget" method="post">
+                     <button class="btn btn-outline-secondary btn-sm" name="menu" type="submit" value="spent">Spent</button>
+                    </form>
+
+                    <form align="right" action="/showbudget" method="post">
+                     <button class="btn btn-outline-secondary btn-sm" name="menu" type="submit" value="remaining">Remaining</button>
+                    </form>                            
+                  </div>
+                </div>
+            </div>  
+            <br/>           
             <table class="table table-bordered">
               <thead class="thead-light">
                 <tr>
@@ -66,7 +93,7 @@
             <% } %> 
             <% if (!incomeBtn) { %>             
               <form align="right" action="/editbudget" method="post">
-                   <button class="btn btn-primary btn-sm" name="addItemBtn" type="submit" value="income">Add Item</button>
+                   <button class="btn btn-info btn-sm" name="addItemBtn" type="submit" value="income">Add Item</button>
               </form><br>  
             <% } %>                
             <br/>
@@ -109,7 +136,7 @@
             <% } %> 
             <% if (!givingBtn) { %>             
               <form align="right" action="/editbudget" method="post">
-                   <button class="btn btn-primary btn-sm" name="addItemBtn" type="submit" value="giving">Add Item</button>
+                   <button class="btn btn-info btn-sm" name="addItemBtn" type="submit" value="giving">Add Item</button>
               </form><br>  
             <% } %>           
             <br/>
@@ -152,7 +179,7 @@
             <% } %> 
             <% if (!savingsBtn) { %>             
               <form align="right" action="/editbudget" method="post">
-                   <button class="btn btn-primary btn-sm" name="addItemBtn" type="submit" value="savings">Add Item</button>
+                   <button class="btn btn-info btn-sm" name="addItemBtn" type="submit" value="savings">Add Item</button>
               </form><br>  
             <% } %>                         
             <br/>
@@ -195,7 +222,7 @@
             <% } %> 
             <% if (!housingBtn) { %>             
               <form align="right" action="/editbudget" method="post">
-                   <button class="btn btn-primary btn-sm" name="addItemBtn" type="submit" value="housing">Add Item</button>
+                   <button class="btn btn-info btn-sm" name="addItemBtn" type="submit" value="housing">Add Item</button>
               </form><br>  
             <% } %>  
             <br/>
@@ -238,10 +265,53 @@
             <% } %> 
             <% if (!transportationBtn) { %>             
               <form align="right" action="/editbudget" method="post">
-                   <button class="btn btn-primary btn-sm" name="addItemBtn" type="submit" value="transportation">Add Item</button>
+                   <button class="btn btn-info btn-sm" name="addItemBtn" type="submit" value="transportation">Add Item</button>
               </form><br>  
             <% } %>
             <br/>
+            <br/>
+             <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr>
+                  <th colspan="2">Food</th>
+                  <th class="text-right">Planned</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <% food.forEach( (food) => { %>
+                    <tr>
+                        <td colspan="2"><%=food.label%></td>
+                        <td class="text-right"><%=food.amount%></td>
+                    </tr>
+                <% }); %>
+              </tbody>
+            </table>
+           <% if (foodBtn) {%>
+              <form action='/additem' method='post'>            
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="submit"></label>
+                  <div class="col-md-8">
+                    <div id="incomeRow" class="row">
+                        <div class="col">
+                            <label>Label:</label> <input type="text" id="label" placeholder="Enter Label" class="form-control" name="labelFood">
+                        </div>
+                        <div class="col">
+                          <label>Amount:</label> <input min = "0.00" step="0.01" value="0.00" type="number" id="amount" placeholder="Enter Amount" class="form-control" name="amountFood">
+                        </div>
+                      </div>                  
+                    <button id="submit" name="submit" class="btn btn-primary" value="submit">Submit</button>
+                    <button id="submit" name="submit" class="btn btn-secondary" value="cancel">Cancel</button>
+                  </div>
+                </div> 
+              </form>
+            <% } %> 
+            <% if (!foodBtn) { %>             
+              <form align="right" action="/editbudget" method="post">
+                   <button class="btn btn-info btn-sm" name="addItemBtn" type="submit" value="food">Add Item</button>
+              </form><br>  
+            <% } %>  
+            <br/>            
             <br/>
             <table class="table table-bordered">
               <thead class="thead-light">
@@ -281,7 +351,7 @@
             <% } %> 
             <% if (!lifestyleBtn) { %>             
               <form align="right" action="/editbudget" method="post">
-                   <button class="btn btn-primary btn-sm" name="addItemBtn" type="submit" value="lifestyle">Add Item</button>
+                   <button class="btn btn-info btn-sm" name="addItemBtn" type="submit" value="lifestyle">Add Item</button>
               </form><br>  
             <% } %>  
             <br/>
@@ -289,7 +359,7 @@
             <table class="table table-bordered">
               <thead class="thead-light">
                 <tr>
-                  <th colspan="2">Insurance</th>
+                  <th colspan="2">Insurance & Tax</th>
                   <th class="text-right">Planned</th>
 
                 </tr>
@@ -324,50 +394,7 @@
             <% } %> 
             <% if (!insuranceBtn) { %>             
               <form align="right" action="/editbudget" method="post">
-                   <button class="btn btn-primary btn-sm" name="addItemBtn" type="submit" value="insurance">Add Item</button>
-              </form><br>  
-            <% } %> 
-            <br/>
-            <br/>
-            <table class="table table-bordered">
-              <thead class="thead-light">
-                <tr>
-                  <th colspan="2">Tax</th>
-                  <th class="text-right">Planned</th>
-
-                </tr>
-              </thead>
-              <tbody>
-                <% tax.forEach( (tax) => { %>
-                    <tr>
-                        <td colspan="2"><%=tax.label%></td>
-                        <td class="text-right"><%=tax.amount%></td>
-                    </tr>
-                <% }); %>
-              </tbody>
-            </table>
-           <% if (taxBtn) {%>
-              <form action='/additem' method='post'>            
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for="submit"></label>
-                  <div class="col-md-8">
-                    <div id="incomeRow" class="row">
-                        <div class="col">
-                            <label>Label:</label> <input type="text" id="label" placeholder="Enter Label" class="form-control" name="labelTax">
-                        </div>
-                        <div class="col">
-                          <label>Amount:</label> <input min = "0.00" step="0.01" value="0.00" type="number" id="amount" placeholder="Enter Amount" class="form-control" name="amountTax">
-                        </div>
-                      </div>                  
-                    <button id="submit" name="submit" class="btn btn-primary" value="submit">Submit</button>
-                    <button id="submit" name="submit" class="btn btn-secondary" value="cancel">Cancel</button>
-                  </div>
-                </div> 
-              </form>
-            <% } %> 
-            <% if (!taxBtn) { %>             
-              <form align="right" action="/editbudget" method="post">
-                   <button class="btn btn-primary btn-sm" name="addItemBtn" type="submit" value="tax">Add Item</button>
+                   <button class="btn btn-info btn-sm" name="addItemBtn" type="submit" value="insurance">Add Item</button>
               </form><br>  
             <% } %> 
             <br/>
@@ -410,14 +437,11 @@
             <% } %> 
             <% if (!debtBtn) { %>             
               <form align="right" action="/editbudget" method="post">
-                   <button class="btn btn-primary btn-sm" name="addItemBtn" type="submit" value="debt">Add Item</button>
+                   <button class="btn btn-info btn-sm" name="addItemBtn" type="submit" value="debt">Add Item</button>
               </form><br>  
             <% } %> 
             <br/>
             <br/>
-            <form align="right" action="/home" method="get">
-                <input class="btn btn-secondary" type="submit" value="Return Home">
-            </form><br> 
         </div>  
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
