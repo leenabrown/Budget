@@ -4,8 +4,6 @@ var app = express();
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-var Budget = require('./models/budget.js');
-var Spent = require('./models/spent.js');
 var Users = require('./models/user.js');
 
 const PORT = 8080;
@@ -16,48 +14,51 @@ app.use(cookieParser());
 app.use(session({secret: 'suchasecuresecret'}));
 
 app.get('/', function (req, res) {
-	res.render('login.ejs', {message: ''});
+  res.render('login.ejs', {message: ''});
 });
 
 app.post('/', function (req, res) {
-	var username = req.body.username;
-	var password = req.body.password;
-	Users.findOne({username: username, password: password}, function (err, results) {
-		if (err) {
-			res.send(err);
-		} else if (results) {
-			req.session.loggedin = 1;
-			req.session.user = username;
-			req.session.message = "";
-			req.session.save();
-			res.redirect('/home');
-		} else {
-			res.render('login.ejs',{message:"Incorrect login credentials."})
-		}
-	});
+  var username = req.body.username;
+  var password = req.body.password;
+  Users.findOne({username: username, password: password}, function (err, results) {
+    if (err) {
+      res.send(err);
+    } else if (results) {
+      req.session.loggedin = 1;
+      req.session.user = username;
+      req.session.message = "";
+      req.session.menu = "";
+      req.session.save();
+      res.redirect('/home');
+    } else {
+      res.render('login.ejs',{message:'Incorrect login credentials.'})
+    }
+  });
 })
 
 app.get('/home', function (req, res) {
-	if(req.session.loggedin == 1) {
-		res.render("home.ejs");
-	} else {
-		res.redirect('/');
-	}
+  if(req.session.loggedin == 1) {
+    req.session.menu = '';
+    res.render('home.ejs');
+  } else {
+    res.redirect('/');
+  }
 });
 
 
 app.get('/createbudget', function (req, res) {
-	if (req.session.loggedin == 1) {
-		res.render('createbudget.ejs');		
-	} else {
-		res.redirect('/');
-	}
+  if (req.session.loggedin == 1) {
+    res.render('createbudget.ejs');   
+  } else {
+    res.redirect('/');
+  }
 });
 
 app.post('/logout', function (req, res) {
-	req.session.loggedin = 0;
-	req.session.save();
-	res.redirect('/');
+  req.session.loggedin = 0;
+  req.session.menu = '';
+  req.session.save();
+  res.redirect('/');
 });
 
 app.post('/createbudget', routes.post_create_budget);

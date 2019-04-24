@@ -10,12 +10,18 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "canvasjs": "^1.8.1",
     "cookie-parser": "^1.4.4",
     "dynamic-forms": "0.0.6",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
-    "jquery": "^3.3.1",
+    "jQuery": "^1.7.4",
+    "jquery": "^3.4.0",
+    "jsdom": "^15.0.0",
     "mongoose": "^5.5.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.1"
   }
 }

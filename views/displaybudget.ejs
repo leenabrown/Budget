@@ -23,6 +23,48 @@
         }   
     </style>
     <body>
+      <script gi=<%=gi%> sa=<%=sa%> ho=<%=ho%> tr=<%=tr%> fo=<%=fo%> li=<%=li%> ins=<%=ins%> de=<%=de%> rem=<%=rem%>>
+          window.onload = function () {
+            var gi = parseFloat(document.getElementsByTagName('script')[0].getAttribute('gi'));
+            var sa = (parseFloat(document.getElementsByTagName('script')[0].getAttribute('sa')));
+            var ho = parseFloat(document.getElementsByTagName('script')[0].getAttribute('ho'));
+            var tr = (parseFloat(document.getElementsByTagName('script')[0].getAttribute('tr')));
+            var fo = parseFloat(document.getElementsByTagName('script')[0].getAttribute('fo'));
+            var li = (parseFloat(document.getElementsByTagName('script')[0].getAttribute('li')));
+            var ins = parseFloat(document.getElementsByTagName('script')[0].getAttribute('ins'));
+            var de = (parseFloat(document.getElementsByTagName('script')[0].getAttribute('de')));
+            var rem = parseFloat(document.getElementsByTagName('script')[0].getAttribute('rem'));
+          var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            title:{
+              text: "Planned",
+              horizontalAlign: "left"
+            },
+            data: [{
+                type: "doughnut",
+                startAngle: 60,
+                innerRadius: 90,
+                indexLabelFontSize: 17,
+                indexLabel: "{label}",
+                toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+                dataPoints: [
+                  { y: rem, label: "Not Planned" },
+                  { y: gi, label: "Giving" },
+                  { y: sa, label: "Savings" },
+                  { y: ho, label: "Housing" },
+                  { y: tr, label: "Transportation" },
+                  { y: fo, label: "Food" },
+                  { y: li, label: "Lifestyle" },
+                  { y: ins, label: "Insurance" },
+                  { y: de, label: "Debt" }
+              ]
+              }]
+          });
+          chart.render();
+
+          }
+        </script>
+      <div id="chartContainer" style="height: 300px; width: 100%;"></div>
       <div class="container">        
         <nav class="navbar fixed-bottom navbar-light bg-light">
           <a href="/addexpense" class="btn btn-secondary btn-lg btn-block" role="button">+</a>
@@ -443,6 +485,7 @@
             <br/>
             <br/>
         </div>  
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>         

@@ -4,6 +4,7 @@
       <title> My Budget </title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     </head>
     <style type="text/css">
         body {
@@ -23,6 +24,40 @@
         }   
     </style>
     <body>
+
+      <% if (type === 'Remaining') {%>
+        <script r=<%=rem%> in=<%=inc%> >
+          window.onload = function () {
+            var incomeVar = parseFloat(document.getElementsByTagName('script')[0].getAttribute('in'));
+            var remainVar = (parseFloat(document.getElementsByTagName('script')[0].getAttribute('r')));
+            console.log(remainVar);
+            console.log(incomeVar);
+          var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            title:{
+              text: "Remaining",
+              horizontalAlign: "left"
+            },
+            data: [{
+                type: "doughnut",
+                startAngle: 60,
+                innerRadius: 90,
+                indexLabelFontSize: 17,
+                // indexLabel: "{label} - #percent%",
+                toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+                dataPoints: [
+                  { y: incomeVar, label: "Spent" },
+                  { y: remainVar, label: "Remaining" }
+                ]
+              }]
+          });
+          chart.render();
+
+          }
+           // console.log(document.getElementsByTagName('script')[0].getAttribute('c1'));
+        </script>
+      <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+            <%}%> 
       <div class="container">
         <nav class="navbar fixed-bottom navbar-light bg-light">
           <a href="/addexpense" class="btn btn-secondary btn-lg btn-block" role="button">+</a>
@@ -214,7 +249,9 @@
 <!--             <form align="right" action="/home" method="get">
                 <input class="btn btn-outline-secondary" type="submit" value="Return Home">
             </form><br>  -->
-        </div>  
+        </div> 
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+ 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>         
